@@ -11,6 +11,10 @@ const contactSchema = new mongoose.Schema({
   },
   tel: {
     type: Number,
+  },
+  createdAt: {
+    type: Date,
+    default: Date.now
   }
 })
 
