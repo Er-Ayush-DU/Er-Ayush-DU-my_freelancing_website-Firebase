@@ -1,0 +1,13 @@
+.about {
+  background-color: #2b2b2b;
+}
+
+.contact-details p {
+  margin-top: 4px;
+}
+
+.contactAndResume {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}

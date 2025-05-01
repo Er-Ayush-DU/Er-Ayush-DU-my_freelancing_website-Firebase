@@ -1,0 +1,9 @@
+.Logo {
+  height: 9vh;
+  width: 9vw;
+  object-fit: cover;
+}
+
+.navbar {
+  background: #000;
+}
