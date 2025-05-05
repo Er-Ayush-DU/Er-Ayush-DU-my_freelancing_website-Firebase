@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client'
 import './index.css'
-import { RouterProvider, createBrowserRouter, createRoutesFromChildren , Route  } from 'react-router-dom'
+import { RouterProvider, createBrowserRouter, createRoutesFromChildren, Route } from 'react-router-dom'
 import Layout from './layout.jsx'
 import Home from './components/Home/Home.jsx';
 import About from './components/About/About.jsx';
@@ -9,6 +9,8 @@ import Contact from './components/Contact/Contact.jsx';
 import Github, { GithubLoadFollwer } from './components/Github/Github.jsx';
 import User from './components/User/User.jsx';
 import Service from './components/Service/Service.jsx';
+import Login from './components/Login/login.jsx';
+import Register from './components/Register/Register.jsx';
 
 
 
@@ -45,8 +47,10 @@ const router = createBrowserRouter(
       <Route path="about" element={<About />} />
       <Route path="service" element={<Service />} />
       <Route path="contact" element={<Contact />} />
+      <Route path="login" element={<Login />} />
+      <Route path="register" element={<Register />} />
       {/* <Route loader={GithubLoadFollwer} path="github" element={<Github />} /> */}
-      <Route path="user/:userid" element={<User/>} />
+      <Route path="user/:userid" element={<User />} />
 
     </Route>
   )
