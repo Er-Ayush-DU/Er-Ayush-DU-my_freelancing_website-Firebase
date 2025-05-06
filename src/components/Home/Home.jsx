@@ -1,21 +1,31 @@
-                import React from 'react'
+import React from 'react'
 import "./Home.css"
 import About from '../About/About';
 import Contact from '../Contact/Contact'
 import Service from '../Service/Service';
+import { useAuth } from '../../context/AuthContext';
 
 export default function Home() {
+  const { currentUser } = useAuth();
+
+
+
+
+
   return (
     <>
       <div className="heroSection">
         <img
-          src="assets\Hero_image.jpeg"
+          src="assets/Hero_image.jpeg"
           alt="HeroImage"
           className="heroImage"
         />
         <div className="heroContent">
           <div className="heroText">
             <h1>I'm Ayush Tiwari.</h1>
+            {currentUser && (
+              <p>Welcome back, {currentUser.displayName || currentUser.email}!</p>
+            )}
             <p>I'am a <span>Computer Science Student</span> at <span>University Of Delhi</span></p>
           </div>
 

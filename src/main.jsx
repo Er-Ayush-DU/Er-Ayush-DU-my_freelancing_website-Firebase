@@ -7,10 +7,14 @@ import Home from './components/Home/Home.jsx';
 import About from './components/About/About.jsx';
 import Contact from './components/Contact/Contact.jsx';
 import Github, { GithubLoadFollwer } from './components/Github/Github.jsx';
-import User from './components/User/User.jsx';
+import User from './components/User/Settings.jsx';
 import Service from './components/Service/Service.jsx';
 import Login from './components/Login/Login.jsx';
 import Register from './components/Register/Register.jsx';
+import { AuthProvider } from './context/AuthContext';
+
+import Settings from './components/User/Settings.jsx';
+import Profile from './components/User/Profile.jsx';
 
 
 
@@ -50,7 +54,10 @@ const router = createBrowserRouter(
       <Route path="login" element={<Login />} />
       <Route path="register" element={<Register />} />
       {/* <Route loader={GithubLoadFollwer} path="github" element={<Github />} /> */}
-      <Route path="user/:userid" element={<User />} />
+      {/* <Route path="user/:userid" element={<User />} /> */}
+      {/* <Route path="github" element={<Github />} /> */}
+      <Route path="settings" element={<Settings />} />
+      <Route path="profile/:userid" element={<Profile />} />
 
     </Route>
   )
@@ -58,6 +65,9 @@ const router = createBrowserRouter(
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <AuthProvider>
+      <RouterProvider router={router} />
+    </AuthProvider>
+
   </React.StrictMode>,
 )
