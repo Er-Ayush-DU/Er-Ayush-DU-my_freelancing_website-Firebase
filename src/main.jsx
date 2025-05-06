@@ -9,7 +9,7 @@ import Contact from './components/Contact/Contact.jsx';
 import Github, { GithubLoadFollwer } from './components/Github/Github.jsx';
 import User from './components/User/User.jsx';
 import Service from './components/Service/Service.jsx';
-import Login from './components/Login/login.jsx';
+import Login from './components/Login/Login.jsx';
 import Register from './components/Register/Register.jsx';
 
 
