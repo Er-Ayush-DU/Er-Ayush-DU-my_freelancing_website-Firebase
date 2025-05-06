@@ -12,9 +12,9 @@ import Service from './components/Service/Service.jsx';
 import Login from './components/Login/Login.jsx';
 import Register from './components/Register/Register.jsx';
 import { AuthProvider } from './context/AuthContext';
-
 import Settings from './components/User/Settings.jsx';
 import Profile from './components/User/Profile.jsx';
+import ForgotPassword from './components/Login/ForgetPassword.jsx'
 
 
 
@@ -58,6 +58,7 @@ const router = createBrowserRouter(
       {/* <Route path="github" element={<Github />} /> */}
       <Route path="settings" element={<Settings />} />
       <Route path="profile/:userid" element={<Profile />} />
+      <Route path="forgot-password" element={<ForgotPassword />} />
 
     </Route>
   )

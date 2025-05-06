@@ -4,7 +4,7 @@ import { useAuth } from '../../context/AuthContext';
 import { getAuth, signOut } from 'firebase/auth';
 import { app } from '../../firebase.js';
 import "./Header.css";
-import Profile from '../User/Profile.jsx';
+
 
 export default function Header() {
   const { currentUser } = useAuth();
@@ -68,8 +68,13 @@ export default function Header() {
                   className="flex items-center gap-2 text-gray-800 hover:text-orange-600 focus:outline-none"
                 >
                   <span className="hidden md:inline font-medium">
-                    {currentUser.displayName || currentUser.email.split('@')[0]}
+                    {(currentUser.displayName || currentUser.email.split('@')[0])
+                      .toLowerCase()
+                      .split(' ')
+                      .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+                      .join(' ')}
                   </span>
+                  
                   <div className="w-8 h-8 rounded-full bg-orange-100 flex items-center justify-center text-orange-600 font-medium">
                     {currentUser.displayName?.charAt(0).toUpperCase() ||
                       currentUser.email.charAt(0).toUpperCase()}

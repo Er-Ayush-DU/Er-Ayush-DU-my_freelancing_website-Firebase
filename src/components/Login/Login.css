@@ -128,3 +128,30 @@
 .login-footer a:hover {
   text-decoration: underline;
 }
+
+
+
+
+/* Forget Password */
+
+
+.forgot-password {
+  color: #3b82f6;
+  font-size: 0.875rem;
+  text-decoration: none;
+}
+
+.forgot-password:hover {
+  text-decoration: underline;
+  color: #2563eb;
+}
+
+.reset-sent-message {
+  text-align: center;
+  margin-top: 1rem;
+}
+
+.reset-sent-message p {
+  margin-bottom: 1.5rem;
+  color: #4b5563;
+}

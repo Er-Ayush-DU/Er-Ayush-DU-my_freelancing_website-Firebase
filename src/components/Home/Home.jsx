@@ -23,9 +23,9 @@ export default function Home() {
         <div className="heroContent">
           <div className="heroText">
             <h1>I'm Ayush Tiwari.</h1>
-            {currentUser && (
+            {/* {currentUser && (
               <p>Welcome back, {currentUser.displayName || currentUser.email}!</p>
-            )}
+            )} */}
             <p>I'am a <span>Computer Science Student</span> at <span>University Of Delhi</span></p>
           </div>
 
