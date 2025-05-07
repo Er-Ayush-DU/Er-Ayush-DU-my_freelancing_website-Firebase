@@ -20,19 +20,19 @@ export default function About() {
 
           {/* Content */}
           <div className="md:w-7/12 lg:w-8/12">
-            <div className="mb-12">
+            <div className="about mb-12">
               <h2 className="text-3xl md:text-4xl font-bold text-white mb-6 relative inline-block">
                 About Me
                 <span className="absolute bottom-0 left-0 w-full h-1 bg-orange-500"></span>
               </h2>
-              <p className="text-lg text-gray-300 leading-relaxed mb-8">
+              <p className="about-p1 text-lg text-gray-300 leading-relaxed mb-8">
                 Hey there! 👋 I'm a creative and detail-oriented freelancer with a passion for designing and developing high-quality websites that are not just visually stunning but also highly functional and user-friendly.
               </p>
-              <p className="text-lg text-gray-300 leading-relaxed mb-8">
+              <p className="about-p2 text-lg text-gray-300 leading-relaxed mb-8">
                 With years of experience in UI/UX design, frontend development, and full-stack projects, I specialize in HTML, CSS, JavaScript, Bootstrap, React, and PHP Laravel. Whether you need a responsive website, an interactive web app, or a custom-built solution, I bring a blend of creativity and technical expertise to turn ideas into reality.
               </p>
 
-              <div className="bg-gray-800 p-6 rounded-xl border-l-4 border-orange-500 shadow-lg">
+              <div className="about-offer bg-gray-800 p-6 rounded-xl border-l-4 border-orange-500 shadow-lg">
                 <h2 className='text-2xl font-bold text-green-400 mb-4'>What I Offer:</h2>
                 <ul className="space-y-3">
                   <li className="flex items-start">

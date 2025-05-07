@@ -1,5 +1,6 @@
 .about {
   background-color: #2b2b2b;
+  padding: 20px;
 }
 
 .contact-details p {
@@ -10,4 +11,39 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+
+
+/* For Mobile View */
+
+@media (max-width: 400px) {
+  .about {
+    padding: 20px;
+  }
+  .about h2 {
+    font-size: 24px;
+
+  }
+
+  .about-p1 {
+    /*  .about p:nth-child(1) */
+    font-size: 14px;
+  }
+
+  .about-p2 {
+    /*  .about p:nth-child(2) */
+    font-size: 14px;
+  }
+
+  .about-offer{
+    font-size: 14px;
+  }
+
+  .about-offer h2{
+    font-size: 20px;  
+  }
+
+
+
 }

@@ -55,3 +55,17 @@
 .mobile-menu {
   transition: max-height 0.3s ease;
 }
+
+
+
+
+/* For Responsive Design */
+
+
+@media (max-width: 400px) {
+  .Logo {
+    height: 50px;
+    width: 50px;
+
+  }
+}

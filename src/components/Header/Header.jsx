@@ -49,11 +49,11 @@ export default function Header() {
   return (
     <header className="shadow sticky z-50 top-0 bg-white">
       <nav className="navbar px-4 lg:px-6 py-2.5">
-        <div className="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl">
-          <Link to="/" className="flex items-center">
+        <div className=" flex flex-wrap justify-between items-center mx-auto max-w-screen-xl">
+          <Link to="/" className="ps-4 flex items-center">
             <img
               src="assets/my_logo.png"
-              className="mr-3 h-12 Logo"
+              className=" h-12 w- Logo"
               alt="Logo"
             />
           </Link>
@@ -74,7 +74,7 @@ export default function Header() {
                       .map(word => word.charAt(0).toUpperCase() + word.slice(1))
                       .join(' ')}
                   </span>
-                  
+
                   <div className="w-8 h-8 rounded-full bg-orange-100 flex items-center justify-center text-orange-600 font-medium">
                     {currentUser.displayName?.charAt(0).toUpperCase() ||
                       currentUser.email.charAt(0).toUpperCase()}
@@ -127,14 +127,14 @@ export default function Header() {
               </>
             )}
 
-            <a
+            {/* <a
               href="https://www.fiverr.com/ayushtiwari226"
               target="_blank"
               rel="noopener noreferrer"
               className="text-white bg-blue-700 hover:bg-blue-500 font-medium rounded-lg text-sm px-4 py-2 lg:py-2.5 focus:outline-none cursor-pointer transition-colors duration-300"
             >
               Connect to Fiverr
-            </a>
+            </a> */}
 
             {/* Hamburger Menu Button (Mobile Only) */}
             <button

@@ -4,13 +4,19 @@ body {
   margin: 0;
   padding: 0;
   box-sizing: content-box;
- 
+  font-family: "Dancing Script", cursive;
+  font-optical-sizing: auto;
+
 }
 
-html{
+html {
   scrollbar-width: none;
-  -ms-overflow-style: none; /* IE and Edge */
+  -ms-overflow-style: none;
+
+  /* IE and Edge */
   ::-webkit-scrollbar {
-    display: none; /* Chrome */
+    display: none;
+    /* Chrome */
+    font-family: 'Poppins', sans-serif;
   }
 }
