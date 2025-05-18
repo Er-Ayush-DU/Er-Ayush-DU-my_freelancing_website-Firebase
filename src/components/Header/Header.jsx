@@ -84,13 +84,13 @@ export default function Header() {
                 {/* Profile dropdown menu */}
                 {isProfileOpen && (
                   <div className="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-50">
-                    <Link
+                    {/* <Link
                       to={`/profile/${currentUser.uid}`}
                       onClick={() => setIsProfileOpen(false)}
                       className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
                     >
                       Your Profile
-                    </Link>
+                    </Link> */}
                     <Link
                       to="/settings"
                       onClick={() => setIsProfileOpen(false)}
@@ -243,7 +243,7 @@ export default function Header() {
               {currentUser && (
                 <li className="lg:hidden mt-2">
                   <div className="flex flex-col space-y-2 pt-2 border-t border-gray-200">
-                    <Link
+                    {/* <Link
                       to={`/user/${currentUser.uid}`}
                       onClick={() => {
                         setIsMenuOpen(false);
@@ -252,7 +252,7 @@ export default function Header() {
                       className="text-center text-gray-800 hover:bg-gray-100 font-medium rounded-lg text-sm px-4 py-2"
                     >
                       Your Profile
-                    </Link>
+                    </Link> */}
                     <Link
                       to="/settings"
                       onClick={() => {
@@ -261,7 +261,7 @@ export default function Header() {
                       }}
                       className="text-center text-gray-800 hover:bg-gray-100 font-medium rounded-lg text-sm px-4 py-2"
                     >
-                      Settings
+                      Account Settings
                     </Link>
                     <button
                       onClick={() => {

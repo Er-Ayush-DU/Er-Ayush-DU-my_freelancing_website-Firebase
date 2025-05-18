@@ -1,27 +1,30 @@
 import React, { useState } from 'react';
-import axios from "axios";
 import { useNavigate } from 'react-router-dom';
+import { database } from '../../firebase'; // Import your Firebase configuration
+import { ref, push } from 'firebase/database';
 
 export default function Contact() {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
-    tel: ""
+    tel: "",
+    message: "" // Added message field
   });
 
   const [errors, setErrors] = useState({
     name: "",
     email: "",
-    tel: ""
+    tel: "",
+    message: ""
   });
 
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [successMessage, setSuccessMessage] = useState(""); 
+  const [successMessage, setSuccessMessage] = useState("");
   const navigate = useNavigate();
 
   const validateForm = () => {
     let valid = true;
-    const newErrors = { name: "", email: "", tel: "" };
+    const newErrors = { name: "", email: "", tel: "", message: "" };
 
     if (!formData.name.trim()) {
       newErrors.name = "Name is required";
@@ -44,6 +47,11 @@ export default function Contact() {
       valid = false;
     }
 
+    if (!formData.message.trim()) {
+      newErrors.message = "Message is required";
+      valid = false;
+    }
+
     setErrors(newErrors);
     return valid;
   };
@@ -58,20 +66,27 @@ export default function Contact() {
   };
 
   const handleSubmit = async (e) => {
-    e.preventDefault(); 
-    
+    e.preventDefault();
+
     if (!validateForm()) return;
-    
+
     setIsSubmitting(true);
 
     try {
-      const response = await axios.post('http://localhost:3001/contact', formData, {
-        headers: { "Content-Type": "application/json" }
+      // Reference to your Firebase Realtime Database
+      const contactsRef = ref(database, 'contacts');
+
+      // Push new contact data to Firebase
+      await push(contactsRef, {
+        name: formData.name,
+        email: formData.email,
+        phone: formData.tel,
+        message: formData.message,
+        timestamp: new Date().toISOString()
       });
 
-      console.log("Response:", response.data);
       setSuccessMessage("Your message has been successfully sent!");
-      setFormData({ name: "", email: "", tel: "" });
+      setFormData({ name: "", email: "", tel: "", message: "" });
 
       setTimeout(() => {
         setSuccessMessage("");
@@ -79,7 +94,7 @@ export default function Contact() {
       }, 2000);
 
     } catch (error) {
-      console.error("Error:", error);
+      console.error("Error saving contact data:", error);
       setSuccessMessage("Failed to send message. Please try again later.");
     } finally {
       setIsSubmitting(false);
@@ -105,7 +120,7 @@ export default function Contact() {
             <p className="mt-4 text-lg">
               Fill in the form to start a conversation. We'll get back to you as soon as possible.
             </p>
-            
+
             <div className="mt-12">
               <h2 className="text-xl font-semibold">Contact Information</h2>
               <p className="mt-4 flex items-center">
@@ -118,7 +133,7 @@ export default function Contact() {
                 <svg className="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                 </svg>
-              er.ayush336@gamil.com
+                er.ayush336@gmail.com
               </p>
             </div>
           </div>
@@ -166,6 +181,19 @@ export default function Contact() {
                   className={`mt-1 block w-full px-4 py-3 rounded-lg border ${errors.tel ? 'border-red-500' : 'border-gray-300'} shadow-sm focus:ring-orange-500 focus:border-orange-500`}
                 />
                 {errors.tel && <p className="mt-1 text-sm text-red-600">{errors.tel}</p>}
+              </div>
+
+              <div>
+                <label htmlFor="message" className="block text-sm font-medium text-gray-700">Message</label>
+                <textarea
+                  value={formData.message}
+                  onChange={handleChange}
+                  name="message"
+                  id="message"
+                  rows="4"
+                  className={`mt-1 block w-full px-4 py-3 rounded-lg border ${errors.message ? 'border-red-500' : 'border-gray-300'} shadow-sm focus:ring-orange-500 focus:border-orange-500`}
+                ></textarea>
+                {errors.message && <p className="mt-1 text-sm text-red-600">{errors.message}</p>}
               </div>
 
               <div>

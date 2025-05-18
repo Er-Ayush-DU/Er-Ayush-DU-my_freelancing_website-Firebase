@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import axios from 'axios';
+// import axios from 'axios';
+import { ref, set } from "firebase/database";
+import { database } from '../../firebase'; // adjust the path as needed
 
 const serviceImages = {
   webDesign: 'https://images.unsplash.com/photo-1624996752380-8ec242e0f85d?q=80&w=1974&auto=format&fit=crop',
@@ -107,11 +109,15 @@ const ServicesCard = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      // Simulate API call
-      await new Promise(resolve => setTimeout(resolve, 1500));
-      // In a real app, you would use:
-      const response = await axios.post('http://localhost:3001/service', formData, {
-        headers: { "Content-Type": "application/json" }
+      // Create a reference to the database with a unique key
+      const serviceRequestRef = ref(database, 'serviceRequests/' + Date.now());
+
+      // Set the form data to the database
+      await set(serviceRequestRef, {
+        ...formData,
+        serviceType: selectedService,
+        timestamp: new Date().toISOString(),
+        status: "new"
       });
 
       setIsSubmitted(true);
@@ -121,16 +127,15 @@ const ServicesCard = () => {
           name: '',
           email: '',
           phone: '',
-          // address: '',
           age: '',
           websiteType: '',
           description: '',
-          // serviceType: '',
           budget: ''
         });
       }, 3000);
     } catch (error) {
-      console.error("Error:", error);
+      console.error("Error saving data to Firebase:", error);
+      // Optionally show an error message to the user
     }
   };
 
@@ -190,11 +195,12 @@ const ServicesCard = () => {
   };
 
   const getImageKey = (title) => {
+    // Convert to lowercase and handle all cases
     return title.toLowerCase()
-      .replace(' development', '')
-      .replace(' full stack', 'FullStack')
-      .replace(' web design', 'WebDesign')
-      .replace(' ', '');
+      .replace(' development', '') // Remove " development"
+      .replace('full stack', 'fullStack') // Convert "full stack" to "fullStack"
+      .replace('web design', 'webDesign') // Convert "web design" to "webDesign"
+      .replace(/\s+/g, ''); // Remove any remaining spaces
   };
 
   const renderFormStep = () => {
@@ -450,40 +456,7 @@ const ServicesCard = () => {
           ))}
         </div>
 
-        {/* Testimonials section */}
-        <div className="mt-20">
-          <h3 className="text-2xl font-bold text-orange-600 text-center mb-8">Trusted by Industry Leaders</h3>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {[
-              {
-                quote: "Their web design transformed our online presence and increased our conversions by 40%.",
-                author: "Sarah Johnson, CEO of TechNova"
-              },
-              {
-                quote: "The backend architecture they built scaled perfectly with our rapid growth.",
-                author: "Michael Chen, CTO of ScaleFast"
-              },
-              {
-                quote: "Exceptional full-stack solutions with attention to every detail. Highly recommended!",
-                author: "Emma Davis, Director of Digital at GlobalCorp"
-              }
-            ].map((testimonial, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.1, duration: 0.6 }}
-                className="bg-gray-400 bg-opacity-10 backdrop-blur-sm p-6 rounded-xl border border-orange-500 border-opacity-20"
-              >
-                <svg className="w-8 h-8 text-yellow-400 mb-4" fill="currentColor" viewBox="0 0 20 20">
-                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                </svg>
-                <p className="text-gray-200 italic mb-4">"{testimonial.quote}"</p>
-                <p className="text-white font-medium">{testimonial.author}</p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
+        
       </div>
 
       {/* Service Request Form Modal */}
