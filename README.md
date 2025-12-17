@@ -58,4 +58,9 @@ To run the project locally:
    ```bash
    git clone https://github.com/Er-Ayush-DU/Web_solution-Frontend.git
 
+
+## Run the project
+
+npm run dev
+
    

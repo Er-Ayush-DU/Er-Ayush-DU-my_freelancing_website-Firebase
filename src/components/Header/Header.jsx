@@ -65,7 +65,7 @@ export default function Header() {
               <div className="relative" ref={profileRef}>
                 <button
                   onClick={toggleProfile}
-                  className="flex items-center gap-2 text-gray-800 hover:text-orange-600 focus:outline-none"
+                  className="flex items-center gap-2 text-white hover:text-orange-600 focus:outline-none"
                 >
                   <span className="hidden md:inline font-medium">
                     {(currentUser.displayName || currentUser.email.split('@')[0])
@@ -179,7 +179,7 @@ export default function Header() {
                   to="/"
                   onClick={() => setIsMenuOpen(false)}
                   className={({ isActive }) =>
-                    `block py-2 pr-4 pl-3 duration-200 ${isActive ? "text-orange-700 font-semibold" : "text-gray-700"} border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 hover:text-orange-700 lg:p-0`
+                    `block py-2 pr-4 pl-3 duration-200 ${isActive ? "text-orange-700 font-semibold" : "text-white"} border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 hover:text-orange-700 lg:p-0`
                   }
                 >
                   Home
@@ -190,7 +190,7 @@ export default function Header() {
                   to="/about"
                   onClick={() => setIsMenuOpen(false)}
                   className={({ isActive }) =>
-                    `block py-2 pr-4 pl-3 duration-200 ${isActive ? "text-orange-700 font-semibold" : "text-gray-700"} border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 hover:text-orange-700 lg:p-0`
+                    `block py-2 pr-4 pl-3 duration-200 ${isActive ? "text-orange-700 font-semibold" : "text-white"} border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 hover:text-orange-700 lg:p-0`
                   }
                 >
                   About
@@ -201,7 +201,7 @@ export default function Header() {
                   to="/contact"
                   onClick={() => setIsMenuOpen(false)}
                   className={({ isActive }) =>
-                    `block py-2 pr-4 pl-3 duration-200 ${isActive ? "text-orange-700 font-semibold" : "text-gray-700"} border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 hover:text-orange-700 lg:p-0`
+                    `block py-2 pr-4 pl-3 duration-200 ${isActive ? "text-orange-700 font-semibold" : "text-white"} border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 hover:text-orange-700 lg:p-0`
                   }
                 >
                   Contact
@@ -212,7 +212,7 @@ export default function Header() {
                   to="/service"
                   onClick={() => setIsMenuOpen(false)}
                   className={({ isActive }) =>
-                    `block py-2 pr-4 pl-3 duration-200 ${isActive ? "text-orange-700 font-semibold" : "text-gray-700"} border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 hover:text-orange-700 lg:p-0`
+                    `block py-2 pr-4 pl-3 duration-200 ${isActive ? "text-orange-700 font-semibold" : "text-white"} border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 hover:text-orange-700 lg:p-0`
                   }
                 >
                   Services
