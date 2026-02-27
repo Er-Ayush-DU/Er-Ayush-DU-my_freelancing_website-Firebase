@@ -3,6 +3,7 @@ import "./Home.css"
 import About from '../About/About';
 import Contact from '../Contact/Contact'
 import Service from '../Service/Service';
+import Project from '../Project/Projects'
 import { useAuth } from '../../context/AuthContext';
 
 export default function Home() {
@@ -54,6 +55,12 @@ export default function Home() {
       {/* Our Services */}
       <div>
         <Service />
+      </div>
+
+      {/* Project */}
+     <div>
+      <Project />
+
       </div>
 
       {/* Contact */}

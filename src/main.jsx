@@ -9,6 +9,7 @@ import Contact from './components/Contact/Contact.jsx';
 import Github, { GithubLoadFollwer } from './components/Github/Github.jsx';
 import User from './components/User/Settings.jsx';
 import Service from './components/Service/Service.jsx';
+import Project from './components/Project/Projects.jsx';
 import Login from './components/Login/Login.jsx';
 import Register from './components/Register/Register.jsx';
 import { AuthProvider } from './context/AuthContext';
@@ -53,6 +54,7 @@ const router = createBrowserRouter(
       <Route path="contact" element={<Contact />} />
       <Route path="login" element={<Login />} />
       <Route path="register" element={<Register />} />
+      <Route path="project" element={<Project />} />
       {/* <Route loader={GithubLoadFollwer} path="github" element={<Github />} /> */}
       {/* <Route path="user/:userid" element={<User />} /> */}
       {/* <Route path="github" element={<Github />} /> */}
