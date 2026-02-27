@@ -85,7 +85,7 @@ export default function Contact() {
         timestamp: new Date().toISOString()
       });
 
-      setSuccessMessage("Your message has been successfully sent!");
+      alert("Your message has been successfully sent!");
       setFormData({ name: "", email: "", tel: "", message: "" });
 
       setTimeout(() => {
