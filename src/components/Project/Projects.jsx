@@ -100,7 +100,7 @@ const Projects = () => {
         </div>
 
         {/* Optional CTA */}
-        <div className="text-center mt-16">
+        {/* <div className="text-center mt-16">
           <a
             href="/contact"
             className="inline-flex items-center px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-full text-lg shadow-lg hover:shadow-xl transition-all"
@@ -110,7 +110,7 @@ const Projects = () => {
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
             </svg>
           </a>
-        </div>
+        </div> */}
       </div>
     </section>
   );
